@@ -1,0 +1,32 @@
+Mongo
+
+************************************************************************
+***||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||***
+************************************************************************
+
+// Запуск контейнера с именем shopping-mongo на основе image mongo
+docker run -d -p 27017:27017 --name shopping-mongo mongo
+
+// Посмотреть логи созданного контейнера shopping-mongo
+docker logs shopping-mongo
+
+// Открыть терминал для работы с MongoDB у созданного контейнера shopping-mongo
+docker exec -it shopping-mongo mongosh
+
+// Просмотр созданных баз данных
+show dbs
+
+// Создание базы данных
+use CatalogDb
+
+// Создание коллекции внутри базы данных
+db.createCollection('Products')
+
+// Добавление данных
+db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
+
+
+************************************************************************
+***||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||***
+************************************************************************
+
